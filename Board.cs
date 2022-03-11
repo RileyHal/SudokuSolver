@@ -16,6 +16,7 @@ namespace SudokuSolver
 
         public void printBoard()
         {
+            Console.WriteLine("-----------------------------------");
             for (int i = 0; i < 81; i++)
             {
                 if (this.board[i] != -1)
@@ -36,7 +37,7 @@ namespace SudokuSolver
 
                 if ((i + 1) % 27 == 0)
                 {
-                    Console.Write("-----------------------------------\n");
+                    Console.WriteLine("-----------------------------------");
                 }
             }
         }
@@ -46,13 +47,9 @@ namespace SudokuSolver
             List<int> square = new List<int>();
             int xSquareCoord, ySquareCoord;
 
-            //get the x and y coordinate of the square 0-2 for x and y
-            xSquareCoord = (int)Math.Floor((xCoord / 3) % 3);
-            ySquareCoord = (int)Math.Floor((yCoord / 3) % 3);
-
             //get starting positions for both the x and y axis
-            int xStartPos = xSquareCoord * 3;
-            int yStartPos = ySquareCoord * 3;
+            int xStartPos = (int)Math.Floor((xCoord / 3) % 3) * 3;
+            int yStartPos = (int)Math.Floor((yCoord / 3) % 3) * 3;
 
             //starting position in array = yStartPosition * 9 + xStartPos
             int arrayPos = (yStartPos * 9) + xStartPos;
